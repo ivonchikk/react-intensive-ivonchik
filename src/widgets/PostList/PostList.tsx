@@ -34,9 +34,9 @@ const PostList = function PostList() {
   ));
 
   return (
-    <div className="post-list">
+    <>
       <ul>{postsList}</ul>
-    </div>
+    </>
   );
 }
 
