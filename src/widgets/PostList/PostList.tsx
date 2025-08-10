@@ -1,14 +1,12 @@
-import { memo } from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
 
-
-interface Posts {
+interface Post {
   id: number;
   title: string;
   content: string;
 }
 
-const posts: Posts[] = [
+const posts: Post[] = [
   {
     id: 1,
     title: "Post 1",
@@ -26,18 +24,22 @@ const posts: Posts[] = [
   },
 ];
 
-const PostList = function PostList() {
-  const postsList = posts.map((post) => (
-    <li key={post.id}>
-      <PostCard title={post.title} content={post.content} />
+const Post = ({ id, title, content }: Post) => {
+  return (
+    <li key={id}>
+      <PostCard title={title} content={content} />
     </li>
-  ));
+  );
+};
+
+export const PostList = () => {
+  if (!posts.length) {
+    return <div>The list is empty</div>;
+  }
 
   return (
-    <div className="post-list">
-      <ul>{postsList}</ul>
-    </div>
+    <ul className="post-list">
+      {posts.map((post) => (<Post {...post} />))}
+    </ul>
   );
-}
-
-export default memo(PostList)
+};
