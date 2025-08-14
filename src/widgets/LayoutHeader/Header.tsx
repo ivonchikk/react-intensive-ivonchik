@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 import { ThemeSwitcher } from "../../features/ThemeSwitcher/ui/ThemeSwitcher";
 import classes from "./header.module.css";
-import { TriggerButton } from "../../shared/ui/Button/ModalTriggerButton/TriggerButton";
+import { Button } from "../../shared/ui/Button/StandardButton/Button";
 import { ModalAboutProject } from "../../shared/ui/Modal/ModalAboutProject";
 
 const Header = function Header() {
@@ -15,7 +15,7 @@ const Header = function Header() {
       <p>Header component</p>
 
       <div className={classes.rightSection}>
-        <TriggerButton onClick={openModal}>About</TriggerButton>
+        <Button className={classes.button} onClick={openModal}>About</Button>
 
         <ModalAboutProject open={isModalOpen}>
           <h3>About the Project</h3>

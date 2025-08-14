@@ -6,10 +6,8 @@ import "./App.css";
 
 export default function App() {
   return (
-    <>
       <MainLayout header={<Header />} footer={<Footer />}>
         <PostList />
       </MainLayout>
-    </>
   );
 }

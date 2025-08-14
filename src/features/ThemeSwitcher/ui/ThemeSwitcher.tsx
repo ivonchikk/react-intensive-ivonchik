@@ -1,11 +1,12 @@
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "../../../shared/lib/theme/useTheme";
-import { ToggleButton } from "../../../shared/ui/Button/ThemeToggleButton/ToggleButton";
+import { Button } from "../../../shared/ui/Button/StandardButton/Button";
+import classes from "./themeSwitcher.module.css"
 
 export function ThemeSwitcher() {
   const { theme, switchThemes } = useTheme();
 
   return (
-    <ToggleButton onClick={switchThemes}>{theme === "dark" ? <FaMoon /> : <FaSun />}</ToggleButton>
+    <Button className={classes.button} onClick={switchThemes}>{theme === "dark" ? <FaMoon /> : <FaSun />}</Button>
   );
 }
