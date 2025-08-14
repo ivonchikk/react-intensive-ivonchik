@@ -1,14 +1,14 @@
 import type { MouseEventHandler, ReactNode } from "react";
-import classes from "./toggleButton.module.css";
 
 interface toggleButtonProps {
   children: ReactNode;
   onClick: MouseEventHandler;
+  className: string;
 }
 
-export function ToggleButton({ children, onClick }: toggleButtonProps) {
+export function Button({ children, onClick, className }: toggleButtonProps) {
   return (
-    <button className={classes.button} onClick={onClick}>
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   );
