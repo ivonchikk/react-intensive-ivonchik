@@ -5,10 +5,10 @@ import {PostList} from "../widgets/PostList/PostList";
 
 export default function App() {
   return (
-    <div>
+    <>
       <MainLayout header={<Header />} footer={<Footer />}>
         <PostList />
       </MainLayout>
-    </div>
+    </>
   );
 }

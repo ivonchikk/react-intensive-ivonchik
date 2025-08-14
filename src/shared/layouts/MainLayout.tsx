@@ -8,10 +8,10 @@ interface MainLayoutProps {
 
 export function MainLayout({ children, header, footer }: MainLayoutProps) {
   return (
-    <div className="app">
+    <>
       {header}
       <main>{children}</main>
       {footer}
-    </div>
+    </>
   );
 }
