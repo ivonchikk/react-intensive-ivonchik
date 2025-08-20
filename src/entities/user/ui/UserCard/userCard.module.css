@@ -1,0 +1,11 @@
+.userCard {
+  margin: 1rem;
+  display: flex;
+  flex-grow: 1;
+}
+
+.leftSide {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid #6e6e6e;
+}

@@ -1,0 +1,30 @@
+.navigate{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.link{
+    border: 1px solid #818181;
+    border-radius: 0.4rem;
+    background-color: #e9e9e995;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+    color: #1c518a;
+    cursor: pointer;
+}
+.link:hover{
+    background-color: #dbdbdb;
+}
+
+.activeLink {
+    border: 1px solid #818181;
+    border-radius: 0.4rem;
+    background-color: #cacaca95;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+    color: #4da3ff;
+    cursor: pointer;
+}

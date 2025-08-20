@@ -1,0 +1,21 @@
+.postItem {
+  background-color: #eeeeeea9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #858585;
+  border-radius: 0.7rem;
+}
+
+.postItem:hover{
+background-color: #dadada;
+}
+
+.postLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.postTitle {
+  margin: 0;
+  font-size: 1.1rem;
+}
