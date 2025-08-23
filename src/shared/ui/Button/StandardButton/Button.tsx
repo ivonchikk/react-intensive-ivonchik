@@ -1,15 +1,15 @@
-import type { MouseEventHandler, ReactNode } from "react";
+import { memo, type MouseEventHandler, type ReactNode } from "react";
 
-interface toggleButtonProps {
+interface ButtonProps {
   children: ReactNode;
   onClick: MouseEventHandler;
   className: string;
 }
 
-export function Button({ children, onClick, className }: toggleButtonProps) {
+export const Button = memo(({ children, onClick, className }: ButtonProps) => {
   return (
     <button className={className} onClick={onClick}>
       {children}
     </button>
   );
-}
+});

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
-import "./modal.css";
+import classes from './modal.module.css';
 
 interface ModalProps {
   children: ReactNode;
@@ -10,8 +10,8 @@ interface ModalProps {
 
 export function Modal({ children, active, setActive }: ModalProps) {
   return createPortal(
-    <div className={active ? "modal active" : "modal"} onClick={setActive}>
-      <div className="modal_content" onClick={(e) => e.stopPropagation()}>
+    <div className={`${classes.modal} ${active ? classes.active : ''}`} onClick={setActive}>
+      <div className = {classes.modal_content} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>,
