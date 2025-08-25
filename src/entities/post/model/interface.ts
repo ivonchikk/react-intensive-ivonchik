@@ -1,6 +1,7 @@
 export interface Post {
-    id: number;
+    userId: number;
+    id: string;
     title: string;
-    content: string;
+    body: string;
     comments?: string[]
 }

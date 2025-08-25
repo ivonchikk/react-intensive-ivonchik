@@ -11,7 +11,7 @@ interface ModalProps {
 export function Modal({ children, active, setActive }: ModalProps) {
   return createPortal(
     <div className={`${classes.modal} ${active ? classes.active : ''}`} onClick={setActive}>
-      <div className = {classes.modal_content} onClick={(e) => e.stopPropagation()}>
+      <div className= {classes.modal_content} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>,
