@@ -14,9 +14,11 @@ const PostListBase = ({ posts }: { posts: Post[] }) => {
 
   const filteredPosts = useMemo(() => filterByLength(posts, minLength), [posts, minLength]);
 
+  if (!posts.length) return <div>The list is empty</div>;
+
   return (
     <div className={classes.postList}>
-      <PostLengthFilter value={minLength} onChange={handleChange}>{'Filter by title length'}</PostLengthFilter>
+      <PostLengthFilter onChange={handleChange}>{'Filter by title length'}</PostLengthFilter>
       {filteredPosts.map((post) => (<PostItem key={post.id} post={post}/>))}
     </div>
   );

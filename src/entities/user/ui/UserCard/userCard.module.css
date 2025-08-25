@@ -1,7 +1,6 @@
 .userCard {
   margin: 1rem;
   display: flex;
-  flex-grow: 1;
 }
 
 .leftSide {

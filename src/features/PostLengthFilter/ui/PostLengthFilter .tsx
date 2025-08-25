@@ -1,13 +1,14 @@
-import { memo, useId, type ReactNode } from "react";
+import { memo, useId, useState, type ReactNode } from "react";
 import classes from "./postLengthFilter.module.css";
+import { Button } from "../../../shared/ui/Button/StandardButton/Button";
 
 interface PostLengthFilterProps {
-  value: number;
   onChange: (value: number) => void;
   children: ReactNode;
 }
 
-export const PostLengthFilter = memo(({ value, onChange, children }: PostLengthFilterProps) => {
+export const PostLengthFilter = memo(({ onChange, children }: PostLengthFilterProps) => {
+  const [value, setValue] = useState(100);
   const id = useId();
 
   return (
@@ -16,12 +17,12 @@ export const PostLengthFilter = memo(({ value, onChange, children }: PostLengthF
         {children}
       </label>
       <input
-        id={id}
         className={classes.input}
         type="number"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
+        defaultValue={value}
+        onChange={(e) => setValue(Number(e.target.value))}
       />
+     <Button className={classes.button} onClick={() => onChange(value)}> Apply </Button>
     </div>
   );
 });

@@ -14,7 +14,7 @@ export const CommentList = memo(({ comments }: CommentListProps) => {
   }, []);
 
   return (
-    <div className="comments">
+    <div>
       <Button className={classes.button} onClick={toggleComments}>
         {isExpanded ? 'Collapse comments' : 'Expand comments'}
       </Button>
