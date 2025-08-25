@@ -1,16 +1,18 @@
 import { mockPosts } from "../../entities/post/mocks/mockPosts";
 import { PostCard } from "../../entities/post/ui/PostCard";
+import { mockPosts } from "../../entities/post/mocks/mockPosts";
 
-export interface Post {
+
+export interface Posts {
   id: number;
   title: string;
   content: string;
 }
 
-const Post = ({ id, title, content }: Post) => {
-  return (
-    <li key={id}>
-      <PostCard title={title} content={content} />
+const PostList = function PostList() {
+  const postsList = mockPosts.map((post) => (
+    <li key={post.id}>
+      <PostCard title={post.title} content={post.content} />
     </li>
   );
 };
@@ -21,8 +23,8 @@ export const PostList = () => {
   }
 
   return (
-    <ul>
-      {mockPosts.map((post) => (<Post {...post} />))}
-    </ul>
+    <>
+      <ul>{postsList}</ul>
+    </>
   );
 };

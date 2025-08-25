@@ -1,6 +1,6 @@
-import type { Post } from "../../../widgets/PostList/PostList";
+import type { Posts } from "../../../widgets/PostList/PostList";
 
-export const mockPosts: Post[] = [
+export const mockPosts: Posts[] = [
   {
     id: 1,
     title: "Post 1",

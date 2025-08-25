@@ -1,8 +1,9 @@
 import { memo } from "react";
+import classes from './footer.module.css'
 
 const Footer = function Footer() {
   return (
-    <footer>
+    <footer className={classes.footer}>
       <p>Footer component</p>
     </footer>
   );
