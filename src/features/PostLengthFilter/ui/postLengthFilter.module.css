@@ -1,0 +1,40 @@
+.lengthFilter {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  max-width: 10rem;
+}
+
+.label {
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  margin-top: 0.3rem;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.25);
+}
+
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1em;
+  background-color: #c6c6c6;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.button:hover {
+  background-color: #d2d2d2;
+}

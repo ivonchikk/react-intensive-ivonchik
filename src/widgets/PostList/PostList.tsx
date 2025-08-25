@@ -1,30 +1,29 @@
-import { mockPosts } from "../../entities/post/mocks/mockPosts";
+
+import { useCallback, useMemo, useState } from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
-import { mockPosts } from "../../entities/post/mocks/mockPosts";
+import { withLoading } from "../../shared/lib/hoc/withLoading";
+import type { Post } from "../../entities/post/ui/interface";
+import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
+import { PostLengthFilter } from "../../features/PostLengthFilter/ui/PostLengthFilter ";
+import classes from "./postList.module.css";
 
+const PostListBase = ({ posts }: { posts: Post[] }) => {
+  const [minLength, setMinLength] = useState(100);
 
-export interface Posts {
-  id: number;
-  title: string;
-  content: string;
-}
+  const handleChange = useCallback((length: number) => setMinLength(length), []);
 
-const PostList = function PostList() {
-  const postsList = mockPosts.map((post) => (
-    <li key={post.id}>
-      <PostCard title={post.title} content={post.content} />
-    </li>
-  );
-};
+  const filteredPosts = useMemo(() => filterByLength(posts, minLength), [posts, minLength]);
 
-export const PostList = () => {
-  if (!mockPosts.length) {
-    return <div>The list is empty</div>;
-  }
-
+  if (!posts.length) return <div>The list is empty</div>;
   return (
-    <>
-      <ul>{postsList}</ul>
-    </>
+    <div className={classes.postList}>
+      <PostLengthFilter onChange={handleChange}>{"Filter by title length"}</PostLengthFilter>
+      {filteredPosts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
   );
 };
+
+export const PostList = withLoading(PostListBase);
+
