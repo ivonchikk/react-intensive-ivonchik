@@ -1,5 +1,4 @@
 import type { User } from "../../model/interface";
-import { UserTabs } from "../../../../widgets/UserTabs/UserTabs";
 
 import classes from "./userCard.module.css";
 import type { ReactNode } from "react";
