@@ -4,6 +4,7 @@ import classes from "./header.module.css";
 import { Modal } from "../../shared/ui/Modal/Modal";
 import { Button } from "../../shared/ui/Button/StandardButton/Button";
 
+
 const Header = function Header() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 

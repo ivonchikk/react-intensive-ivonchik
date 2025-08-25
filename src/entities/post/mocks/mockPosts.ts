@@ -20,3 +20,4 @@ export const mockPosts: Post[] = [
         comments: ['Great post!', 'Nice!', 'Thanks']
     },
 ];
+

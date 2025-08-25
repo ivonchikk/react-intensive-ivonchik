@@ -1,3 +1,4 @@
+
 import { useCallback, useMemo, useState } from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
 import { withLoading } from "../../shared/lib/hoc/withLoading";
@@ -25,3 +26,4 @@ const PostListBase = ({ posts }: { posts: Post[] }) => {
 };
 
 export const PostList = withLoading(PostListBase);
+

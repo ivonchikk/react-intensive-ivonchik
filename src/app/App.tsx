@@ -9,10 +9,8 @@ import { mockPosts } from "../entities/post/mocks/mockPosts";
 export default function App() {
   const { posts, loading } = usePosts(mockPosts);
   return (
-    <>
       <MainLayout header={<Header />} footer={<Footer />}>
         <PostList posts={posts} loading={loading} />
       </MainLayout>
-    </>
   );
 }
