@@ -1,5 +1,5 @@
 export interface User {
-    id: string,
+    id: number,
     name: string,
     username: string,
     email: string,
@@ -28,13 +28,5 @@ interface UserCompany {
     name: string,
     catchPhrase: string,
     bs: string
-}
-
-
-export interface Album {
-    userId: number,
-    id: number,
-    title: string
-
 }
 

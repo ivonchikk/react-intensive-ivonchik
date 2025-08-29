@@ -1,9 +1,10 @@
 import { memo, useCallback, useState } from "react";
 import { Button } from "../../../shared/ui/Button/StandardButton/Button";
 import classes from "./commentList.module.css"
+import type { Comment } from "../../../entities/comment/model/interface";
 
 interface CommentListProps {
-    comments: string[];
+    comments: Comment[];
 }
 
 export const CommentList = memo(({ comments }: CommentListProps) => {
@@ -22,7 +23,7 @@ export const CommentList = memo(({ comments }: CommentListProps) => {
       {isExpanded && (
         <ul>
           {comments.map((comment, index) => (
-            <li key={index}>{comment}</li>
+            <li key={index}>{comment.body}</li>
           ))}
         </ul>
       )}

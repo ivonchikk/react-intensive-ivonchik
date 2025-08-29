@@ -17,7 +17,6 @@ const PostListBase = ({ posts }: { posts: Post[] }) => {
 
   if (!posts.length) return <div>The list is empty</div>;
 
-  if (!posts.length) return <div>The list is empty</div>;
   return (
     <div className={classes.postList}>
       <PostLengthFilter onChange={handleChange}>{'Filter by title length'}</PostLengthFilter>

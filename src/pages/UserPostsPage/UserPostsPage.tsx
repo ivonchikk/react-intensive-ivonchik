@@ -1,17 +1,14 @@
 import { useParams } from "react-router-dom";
-import { usePosts } from "../../features/PostList/model/hooks/usePosts";
-import { useEffect } from "react";
 import { UserPosts } from "../../entities/user/ui/UserPosts/UserPosts";
+import { useGetPostsQuery } from "../../entities/post/api/postsApi";
+import { useAppSelector } from "../../app/hooks/hooks";
+import { selectAllPosts } from "../../entities/post/model/slice/postSlice";
 
 export const UserPostsPage = () => {
   const { id } = useParams();
-  const { posts, fetchPosts } = usePosts();
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  useGetPostsQuery()
+  const posts = useAppSelector((state) => selectAllPosts(state));
 
-  if (!id) return <div>User not found</div>;
-
-  return <UserPosts posts={posts} userId={id} />;
+  return <UserPosts posts={posts} userId={id!}/>;
 };

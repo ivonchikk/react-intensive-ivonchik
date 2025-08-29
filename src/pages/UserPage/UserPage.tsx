@@ -1,22 +1,19 @@
 import { Outlet, useParams } from "react-router-dom";
 import { UserCard } from "../../entities/user/ui/UserCard/UserCard";
-import { useFetchData } from "../../shared/lib/hooks/useFetchData";
-import type { User } from "../../entities/user/model/interface";
-import { useEffect } from "react";
 import classes from "./userPage.module.css";
 import { UserTabs } from "../../widgets/UserTabs/UserTabs";
+import { useGetUsersQuery } from "../../entities/user/api/usersApi";
+import { selectUserById } from "../../entities/user/model/slice/userSlice";
+import { useAppSelector } from "../../app/hooks/hooks";
 
 export const UserPage = () => {
   const { id } = useParams();
-  const urlUser = `https://jsonplaceholder.typicode.com/users/${id}`;
-  const { data: user, loading, error, fetchData } = useFetchData<User>();
+  const userId = Number(id);
+  
+  const { isLoading } = useGetUsersQuery();
+  const user = useAppSelector((state) => selectUserById(state, userId));
 
-  useEffect(() => {
-    fetchData(urlUser);
-  }, [urlUser]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (isLoading) return <div>Loading...</div>;
   if (!user) return <div>User not found</div>;
 
   return (
