@@ -13,7 +13,9 @@ export function MainLayout({ header, footer }: MainLayoutProps) {
     <ThemeProvider>
       <div className={classes.app}>
         {header}
-        <main className={classes.main}><Outlet/></main>
+        <main className={classes.main}>
+          <Outlet />
+        </main>
         {footer}
       </div>
     </ThemeProvider>

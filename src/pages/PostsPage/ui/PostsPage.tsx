@@ -1,13 +1,12 @@
-import { useEffect } from "react";
-import { usePosts } from "../../../features/PostList/model/hooks/usePosts";
 import { PostList } from "../../../widgets/PostList/PostList";
+import { useGetPostsQuery } from "../../../entities/post/api/postsApi";
+import { useAppSelector } from "../../../app/hooks/hooks";
+import { selectAllPosts } from "../../../entities/post/model/slice/postSlice";
 
 export const PostsPage = () => {
-  const { posts, loading, fetchPosts } = usePosts();
+  const { isLoading } = useGetPostsQuery();
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  return <PostList posts={posts} loading={loading} />;
+  const posts = useAppSelector((state) => selectAllPosts(state));
+  
+  return <PostList posts={posts} loading={isLoading} />;
 };

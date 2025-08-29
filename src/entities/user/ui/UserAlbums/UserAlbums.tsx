@@ -1,7 +1,7 @@
 import { AlbumItem } from "../../../album/AlbumItem";
-import type { Album } from "../../model/interface";
+import type { Album } from "../../../album/model/interface";
 
-import classes from "./userAlbum.module.css"
+import classes from "./userAlbum.module.css";
 
 interface UserAlbumsProps {
   albums: Album[];
@@ -9,8 +9,7 @@ interface UserAlbumsProps {
 }
 
 export const UserAlbums = ({ albums, userId }: UserAlbumsProps) => {
-
-  const userAlbums: Album [] = albums.filter((album) => album.userId === parseInt(userId));
+  const userAlbums: Album[] = albums.filter((album) => album.userId === parseInt(userId));
 
   return (
     <div className={classes.album}>

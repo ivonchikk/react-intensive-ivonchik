@@ -1,21 +1,20 @@
 import { useParams } from "react-router-dom";
 import { PostCard } from "../../entities/post/ui/PostCard/PostCard";
-import { useEffect } from "react";
-import type { Post } from "../../entities/post/model/interface";
-import { useFetchData } from "../../shared/lib/hooks/useFetchData";
+import { useAppSelector } from "../../app/hooks/hooks";
+import { selectPostById } from "../../entities/post/model/slice/postSlice";
+import { useGetPostsQuery } from "../../entities/post/api/postsApi";
+import { useGetCommentsByPostIdQuery } from "../../entities/comment/api/commentsApi";
 
 export const PostDetailsPage = () => {
   const { id } = useParams();
-  const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
-  const { data: post, loading, error, fetchData } = useFetchData<Post>();
+  const postId = Number(id);
 
-  useEffect(() => {
-    fetchData(url);
-  }, [url]);
+  const { isLoading } = useGetPostsQuery();
+  const post = useAppSelector((state) => selectPostById(state, postId));
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!post) return <div>Post not found</div>;
+  const {data: comments} = useGetCommentsByPostIdQuery(id!)
 
-  return <PostCard post={post}></PostCard>;
+  if (isLoading) return <div>Loading...</div>;
+
+  return <PostCard post={post} comments={comments}></PostCard>;
 };

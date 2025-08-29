@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./userTabs.module.css"
 
 interface UserNavProps {
-  userId: string;
+  userId: number;
 }
 
 export function UserTabs({ userId }: UserNavProps) {
